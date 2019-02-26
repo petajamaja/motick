@@ -5,7 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { TargetExpensesComponent } from './components/target-expenses/target-expenses/target-expenses.component';
-import {MatToolbarModule, MatCardModule, MatIconModule, MatButtonModule} from '@angular/material';
+import {MatToolbarModule, MatCardModule, MatIconModule, MatButtonModule, MatDividerModule, MatFormFieldModule, 
+        MatTooltipModule,
+        MatInputModule,
+        MatExpansionModule,
+        MatRadioModule } from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SettingsComponent } from './components/settings/settings.component';
 
@@ -23,7 +28,14 @@ import { SettingsComponent } from './components/settings/settings.component';
     MatToolbarModule,
     MatCardModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatTooltipModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

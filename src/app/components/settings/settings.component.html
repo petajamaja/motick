@@ -1,3 +1,73 @@
 <mat-card>
-  SETTINGS PAGE
+    <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              INCOME
+            </mat-panel-title>
+            <mat-panel-description>
+              Money, food tickets, benefits
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <form class="income-form">
+              <label matTooltip="Paid in money" for="money">Monthly income</label>
+              <mat-form-field class="money">
+                <input type="number" matInput>
+              </mat-form-field>
+              <br>
+              <label for="edenred" matTooltip="Paid in Edenred tickets">Food tickets/MD</label>
+              <mat-form-field class="edenred">
+                  <input type="number" matInput>
+              </mat-form-field>
+          </form>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              REGULAR SPENDINGS
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <form class="spendings-form">
+              <label for="accommodation">Rent</label>
+              <mat-form-field class="accommodation">
+                <input type="number" matInput>
+              </mat-form-field>
+              <br>
+              <label for="food">Food spendings</label>
+              <mat-form-field class="food">
+                  <input type="number" matInput>
+              </mat-form-field>
+          </form>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              TIME GOALS
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <form class="time-form">
+              <label for="attendance">Attendance %</label>
+              <mat-form-field class="attendance">
+                <input type="number" matInput>
+              </mat-form-field>
+              <br>
+              <p>Attendance mode:</p>
+              <mat-radio-group>
+                  <mat-radio-button value="1">Everyday attendance</mat-radio-button>
+                  <mat-radio-button value="2">Partial attendance</mat-radio-button>
+              </mat-radio-group>
+          </form>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              APP SETTINGS
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <form class="app-settings-form">
+          </form>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <br>
+      <button mat-raised-button color="primary">SAVE APP STATE</button>
 </mat-card>
