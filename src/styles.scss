@@ -72,3 +72,8 @@ mat-icon {
 body {
     background: map-get($mat-blue-grey,50);
 }
+
+
+.dialog-panel .mat-dialog-container {
+  background-color: white;
+}

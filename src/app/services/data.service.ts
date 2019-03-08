@@ -1,24 +1,57 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { Inject, Injectable } from '@angular/core';
+import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
+import { BehaviorSubject } from 'rxjs';
+import { LocalStorageService } from './local-storage.service';
+const STORAGE_KEY_PURCHASE = 'local_purchase_list';
 
+/**
+ * Storing, editing and deleting the motivational purchases.
+ * This service subscribes to browser local storage observable.
+ */
 @Injectable()
-
 export class DataService {
 
   private purchases = new BehaviorSubject<any>([]);
-  purchase = this.purchases.asObservable();
+  $purchase = this.purchases.asObservable();
 
-  constructor() { }
+  constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) { }
 
-  changePurchase(purchase) {
-    this.purchases.next(purchase);
+  /**
+   * Change state of observable by either adding, modifying or deleting some
+   * of the items in it.
+   * @param $purchase - observable of purchases with added/deleted data
+   */
+  changePurchase($purchase) {
+    this.purchases.next($purchase);
   }
 
-  getPurchaseCount() {
-    return this.purchase;
+  /**
+   * Add purchase to local storage.
+   * @param purchase
+   */
+  public addPurchaseToLocalStorage(purchase: Purchase): void {
+    const currentPurchaseList = this.storage.get(STORAGE_KEY_PURCHASE) || [];
+    currentPurchaseList.push({
+              id: purchase.id,
+              url: purchase.url,
+              picture: purchase.pictureUrl,
+              price: purchase.price
+    });
+    this.storage.set(STORAGE_KEY_PURCHASE, currentPurchaseList);
+    this.changePurchase(currentPurchaseList);
+    console.log(this.storage.get(STORAGE_KEY_PURCHASE) || 'LocaL storage is empty');
   }
 
-  saveDataToBrowserStorage() {
-    
+  public removePurchaseFromLocalStorage(purchaseId: number): void {
+    const currentPurchaseList = this.storage.get(STORAGE_KEY_PURCHASE) || [];
+    const newPurchaseList = currentPurchaseList.filter((purchase) => {
+      return purchase.id === purchaseId;
+    });
+    this.changePurchase(newPurchaseList);
+    console.log(this.storage.get(STORAGE_KEY_PURCHASE));
+  }
+
+  public getPurchaseListFromLocalStorage(): void {
+    this.changePurchase(this.storage.get(STORAGE_KEY_PURCHASE) || []);
   }
 }
