@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PurchasesDialogComponent } from '../purchases-dialog/purchases-dialog.component';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-purchase-table',
@@ -10,10 +10,20 @@ export class PurchaseTableComponent implements OnInit {
 
   @Input()
   purchases: Purchase[];
+  tableDataSource: MatTableDataSource<Purchase>;
+  displayedColumns = ['picture', 'url', 'price'];
 
-  constructor() { }
+  constructor() {
+    this.tableDataSource = new MatTableDataSource<Purchase>();
+  }
 
   ngOnInit() {
+    // subscribing is done in the parent component
+    this.tableDataSource.data = this.purchases;
+  }
+
+  getTotalPrice() {
+    return this.purchases.map(t => t.price).reduce((acc, value) => acc + value, 0);
   }
 
 }
