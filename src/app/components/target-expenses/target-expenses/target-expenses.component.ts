@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { MatDialog } from '@angular/material';
 import { PurchasesDialogComponent } from '../purchases-dialog/purchases-dialog.component';
-import { preserveWhitespacesDefault } from '@angular/compiler';
+import { CloseReason, DialogResult, KEY_CODE } from '../../shared/dialog/dialog-result';
 
 @Component({
   selector: 'app-target-expenses',
@@ -27,13 +27,13 @@ export class TargetExpensesComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(PurchasesDialogComponent, {
-      data: {},
+      data: {} as Purchase,
       panelClass: 'dialog-panel'
     });
-    dialogRef.afterClosed().subscribe(res => {
-      // this._dataService.addPurchaseToLocalStorage(res);
-      this.purchases.push(res);
-      this._dataService.addPurchaseToLocalStorage(res);
+    dialogRef.afterClosed().subscribe((res: DialogResult<Purchase>) => {
+      if (res.reason === CloseReason.SUCCESS) {
+        this._dataService.addPurchaseToLocalStorage(res.data);
+      }
     });
   }
 }

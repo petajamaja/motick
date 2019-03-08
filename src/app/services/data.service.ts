@@ -33,8 +33,9 @@ export class DataService {
     const currentPurchaseList = this.storage.get(STORAGE_KEY_PURCHASE) || [];
     currentPurchaseList.push({
               id: purchase.id,
+              name: purchase.name,
               url: purchase.url,
-              picture: purchase.pictureUrl,
+              pictureUrl: purchase.pictureUrl,
               price: purchase.price
     });
     this.storage.set(STORAGE_KEY_PURCHASE, currentPurchaseList);

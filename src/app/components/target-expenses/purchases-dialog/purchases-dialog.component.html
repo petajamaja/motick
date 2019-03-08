@@ -1,33 +1,33 @@
 <h1 mat-dialog-title>SO WHAT ELSE DOES YOUR HEART DESIRE?</h1>
 <div mat-dialog-content>
-  <form class="purchase-form">
+  <form class="purchase-form" [formGroup]="purchaseForm">
     <label for="id">Id</label>
     <mat-form-field class="id">
-      <input type="number" matInput [(ngModel)]="data.id" name="id">
+      <input type="number" matInput name="id" formControlName="id">
     </mat-form-field>
     <br>
     <label for="name">Name</label>
     <mat-form-field class="name">
-      <input type="string" matInput [(ngModel)]="data.name" name="name">
+      <input type="string" matInput name="name" formControlName="name">
     </mat-form-field>
     <br>
     <label for="url">Link to the item</label>
     <mat-form-field class="url">
-      <input type="string" matInput [(ngModel)]="data.url" name="url">
+      <input type="string" matInput  name="url" formControlName="url">
     </mat-form-field>
     <br>
     <label for="picture-url">Link to the pic</label>
     <mat-form-field class="picture-url">
-       <input type="string" matInput [(ngModel)]="data.pictureUrl" name="picture-url">
+       <input type="string" matInput name="picture-url" formControlName="pictureUrl">
     </mat-form-field>
     <br>
     <label for="price">Price</label>
     <mat-form-field class="price">
-       <input type="number" matInput [(ngModel)]="data.price" name="price">
+       <input type="number" matInput  name="price" formControlName="price">
     </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">LEAVE</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>SAVE</button>
+  <button mat-button (click)="closeDialog()">LEAVE</button>
+  <button mat-button [disabled]="!purchaseForm.valid" (click)="saveDialog()" mat-primary>SAVE</button>
 </div>
