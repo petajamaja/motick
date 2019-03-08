@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { MatDialog } from '@angular/material';
 import { PurchasesDialogComponent } from '../purchases-dialog/purchases-dialog.component';
-import { CloseReason, DialogResult, KEY_CODE } from '../../shared/dialog/dialog-result';
+import { CloseReason, DialogResult } from '../../shared/dialog/dialog-result';
 
 @Component({
   selector: 'app-target-expenses',
   templateUrl: './target-expenses.component.html',
-  styleUrls: ['./target-expenses.component.scss']
+  styleUrls: ['./target-expenses.component.scss'],
 })
 export class TargetExpensesComponent implements OnInit {
 
   purchases = [];
-  purchaseCount;
 
   constructor(private _dataService: DataService, public dialog: MatDialog) { }
 
@@ -21,7 +20,6 @@ export class TargetExpensesComponent implements OnInit {
     this._dataService.getPurchaseListFromLocalStorage();
     this._dataService.$purchase.subscribe(res => {
       this.purchases = res;
-      this.purchaseCount = res.length;
     });
   }
 
