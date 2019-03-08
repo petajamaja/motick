@@ -31,7 +31,7 @@ export class TargetExpensesComponent implements OnInit {
       panelClass: 'dialog-panel'
     });
     dialogRef.afterClosed().subscribe((res: DialogResult<Purchase>) => {
-      if (res.reason === CloseReason.SUCCESS) {
+      if (res && res.reason === CloseReason.SUCCESS) {
         this._dataService.addPurchaseToLocalStorage(res.data);
       }
     });

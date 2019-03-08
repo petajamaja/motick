@@ -1,7 +1,5 @@
 <mat-card>
-  <ul *ngFor="let purchase of purchases">
-    <li>{{purchase.url}} - {{purchase.price}}</li>
-  </ul>
+  <app-purchase-table [purchases]="purchases"></app-purchase-table>
   <button mat-raised-button color="primary" (click)="openDialog()">
     ADD NEW PURCHASE
   </button>
