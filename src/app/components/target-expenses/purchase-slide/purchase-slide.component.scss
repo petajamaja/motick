@@ -1,0 +1,12 @@
+img {
+    height: inherit;
+    object-fit: contain;
+}
+.purhcase{
+    height: 200px;
+}
+
+:host {
+    display:block;
+    height: 100%;
+}

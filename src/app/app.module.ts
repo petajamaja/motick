@@ -10,13 +10,19 @@ import {MatToolbarModule, MatCardModule, MatIconModule, MatButtonModule, MatDivi
         MatInputModule,
         MatExpansionModule,
         MatRadioModule,
-        MatDialogModule } from '@angular/material';
+        MatDialogModule,
+        MatTableModule,
+        MatCheckboxModule} from '@angular/material';
+import {MatCarouselModule} from '@ngmodule/material-carousel';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 import { PurchasesDialogComponent } from './components/target-expenses/purchases-dialog/purchases-dialog.component';
 import { DataService } from './services/data.service';
+import { PurchaseTableComponent } from './components/target-expenses/purchase-table/purchase-table.component';
+import { PurchasesWidgetComponent } from './components/target-expenses/purchases-widget/purchases-widget.component';
+import { PurchaseSlideComponent } from './components/target-expenses/purchase-slide/purchase-slide.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +31,10 @@ import { DataService } from './services/data.service';
     TargetExpensesComponent,
     NavbarComponent,
     SettingsComponent,
-    PurchasesDialogComponent
+    PurchasesDialogComponent,
+    PurchaseTableComponent,
+    PurchasesWidgetComponent,
+    PurchaseSlideComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +53,10 @@ import { DataService } from './services/data.service';
     StorageServiceModule,
     MatDialogModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatCarouselModule
   ],
   providers: [DataService],
   entryComponents: [PurchasesDialogComponent],

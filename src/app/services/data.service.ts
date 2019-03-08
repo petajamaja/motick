@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { BehaviorSubject } from 'rxjs';
-import { LocalStorageService } from './local-storage.service';
 const STORAGE_KEY_PURCHASE = 'local_purchase_list';
 
 /**
@@ -46,10 +45,11 @@ export class DataService {
   public removePurchaseFromLocalStorage(purchaseId: number): void {
     const currentPurchaseList = this.storage.get(STORAGE_KEY_PURCHASE) || [];
     const newPurchaseList = currentPurchaseList.filter((purchase) => {
-      return purchase.id === purchaseId;
+      return purchase.id !== purchaseId;
     });
+    this.storage.remove(STORAGE_KEY_PURCHASE);
+    this.storage.set(STORAGE_KEY_PURCHASE, newPurchaseList);
     this.changePurchase(newPurchaseList);
-    console.log(this.storage.get(STORAGE_KEY_PURCHASE));
   }
 
   public getPurchaseListFromLocalStorage(): void {

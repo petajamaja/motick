@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-carousel [proportion]=100>
+    <mat-carousel-slide *ngFor = "let purchase of purchases">
+      <app-purchase-slide [pictureUrl]="purchase.pictureUrl"
+                          [price]="purchase.price">
+      </app-purchase-slide>
+    </mat-carousel-slide>
+  </mat-carousel>
+</mat-card>
+
