@@ -77,3 +77,18 @@ body {
 .dialog-panel .mat-dialog-container {
   background-color: white;
 }
+
+.mat-cell, .mat-header-cell {
+  font-size: 14px;
+  min-height: 48px;
+  text-align: center!important;
+  border-right: 1px solid black;
+
+  img {
+    width: 100px;
+  }
+}
+.mat-footer-row, .mat-header-row {
+  background-color: map-get($mat-blue-grey,50);
+  text-align: center;
+}
