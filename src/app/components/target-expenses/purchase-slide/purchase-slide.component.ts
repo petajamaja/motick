@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MoneyTrackService } from 'src/app/services/money-track.service';
 
 @Component({
   selector: 'app-purchase-slide',
@@ -11,10 +12,12 @@ export class PurchaseSlideComponent implements OnInit {
   pictureUrl: string;
   @Input()
   price: number;
+  priceInManDays: number;
 
-  constructor() { }
+  constructor(private _moneyService: MoneyTrackService) { }
 
   ngOnInit() {
+    this.priceInManDays = this._moneyService.getPriceEquivalentInManDays(this.price);
   }
 
 }

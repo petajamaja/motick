@@ -34,7 +34,7 @@ export class DataService {
    * of the items in it.
    * @param purchase$ - observable of purchases with added/deleted data
    */
-  changePurchase(purchase$) {
+  public changePurchase(purchase$) {
     this.purchases.next(purchase$);
   }
 
@@ -42,7 +42,7 @@ export class DataService {
    * Change the settings to a new state.
    * @param newSettings - new object implementing AppSettings interface
    */
-  changeAppSettings(newSettings$: AppSettings) {
+  public changeAppSettings(newSettings$: AppSettings) {
     this.appSettings.next(newSettings$);
     this.storage.remove(STORAGE_KEY_SETTINGS);
     this.storage.set(STORAGE_KEY_SETTINGS, newSettings$);

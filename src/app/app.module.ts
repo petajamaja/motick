@@ -23,6 +23,7 @@ import { DataService } from './services/data.service';
 import { PurchaseTableComponent } from './components/target-expenses/purchase-table/purchase-table.component';
 import { PurchasesWidgetComponent } from './components/target-expenses/purchases-widget/purchases-widget.component';
 import { PurchaseSlideComponent } from './components/target-expenses/purchase-slide/purchase-slide.component';
+import { MoneyTrackService } from './services/money-track.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { PurchaseSlideComponent } from './components/target-expenses/purchase-sl
     MatCheckboxModule,
     MatCarouselModule
   ],
-  providers: [DataService],
+  providers: [DataService, MoneyTrackService],
   entryComponents: [PurchasesDialogComponent],
   bootstrap: [AppComponent]
 })

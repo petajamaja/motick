@@ -19,5 +19,4 @@ export class PurchasesWidgetComponent implements OnInit {
       this.purchases = res;
     });
   }
-
 }
