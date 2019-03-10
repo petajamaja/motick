@@ -42,6 +42,11 @@
               TIME GOALS
             </mat-panel-title>
           </mat-expansion-panel-header>
+              <label for="workdays">Work days this month</label>
+              <mat-form-field class="workdays">
+                <input type="number" matInput formControlName="workDaysThisMonth">
+              </mat-form-field>
+              <br>
               <label for="attendance">Attendance %</label>
               <mat-form-field class="attendance">
                 <input type="number" matInput formControlName="goalAttendancePercent">

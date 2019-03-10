@@ -10,4 +10,5 @@ export interface AppSettings {
     foodSpendings: number;
     goalAttendancePercent: number;
     attendanceMode: AttendanceMode;
+    workDaysThisMonth: number;
 }

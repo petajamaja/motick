@@ -17,7 +17,7 @@ export class SettingsComponent implements OnInit {
   timeGoals: FormGroup;
 
   constructor(private _dataService: DataService,
-              private formBuilder: FormBuilder) {}
+              private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
     // load current app settings from local storage
@@ -31,15 +31,15 @@ export class SettingsComponent implements OnInit {
 
   loadFormGroup() {
     // load it all into the form and create a FormGroup
-    this.appSettingsForm = this.formBuilder.group({
+    this.appSettingsForm = this._formBuilder.group({
       monthlyIncome: [this.appSettings.monthlyIncome, [Validators.required]],
       foodTickersPerManDay: [this.appSettings.foodTickersPerManDay, [Validators.required]],
       rentSpendings: [this.appSettings.rentSpendings, [Validators.required]],
       foodSpendings: [this.appSettings.foodSpendings, [Validators.required]],
       goalAttendancePercent: [this.appSettings.goalAttendancePercent, [Validators.required]],
-      attendanceMode: [this.appSettings.attendanceMode, [Validators.required]]
+      attendanceMode: [this.appSettings.attendanceMode, [Validators.required]],
+      workDaysThisMonth: [this.appSettings.workDaysThisMonth, [Validators.required]]
     });
-    console.log(this.appSettingsForm);
   }
 
   saveSettings() {

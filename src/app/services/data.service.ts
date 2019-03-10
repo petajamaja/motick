@@ -19,7 +19,8 @@ export class DataService {
     rentSpendings: 0,
     foodSpendings: 0,
     goalAttendancePercent: 100,
-    attendanceMode: AttendanceMode.everyday
+    attendanceMode: AttendanceMode.everyday,
+    workDaysThisMonth: 0
   };
   private appSettings = new BehaviorSubject(this.defaultAppSettings);
 
@@ -56,7 +57,8 @@ export class DataService {
     currentPurchaseList.push({
               id: purchase.id,
               name: purchase.name,
-              url: purchase.url,
+              url: purchase
+              .url,
               pictureUrl: purchase.pictureUrl,
               price: purchase.price
     });
