@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MatCarouselSlide, MatCarouselSlideComponent } from '@ngmodule/material-carousel';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -16,7 +15,7 @@ export class PurchasesWidgetComponent implements OnInit {
   ngOnInit() {
     // get all the purchases from local storage
     this._dataService.getPurchaseListFromLocalStorage();
-    this._dataService.$purchase.subscribe(res => {
+    this._dataService.purchase$.subscribe(res => {
       this.purchases = res;
     });
   }

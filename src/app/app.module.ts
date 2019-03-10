@@ -34,7 +34,7 @@ import { PurchaseSlideComponent } from './components/target-expenses/purchase-sl
     PurchasesDialogComponent,
     PurchaseTableComponent,
     PurchasesWidgetComponent,
-    PurchaseSlideComponent
+    PurchaseSlideComponent,
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,7 @@ export class TargetExpensesComponent implements OnInit {
   ngOnInit() {
     // get all the purchases from local storage
     this._dataService.getPurchaseListFromLocalStorage();
-    this._dataService.$purchase.subscribe(res => {
+    this._dataService.purchase$.subscribe(res => {
       this.purchases = res;
     });
   }
