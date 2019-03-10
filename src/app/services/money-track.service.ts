@@ -32,11 +32,19 @@ export class MoneyTrackService {
   }
 
   /**
+   * Gets total income including food tickets.
+   */
+  public getTotalIncomeWithFood() {
+    return this.as.monthlyIncome + this.getFoodTicketsAmount();
+  }
+
+  /**
    * Gets the money equivalent of expected food tickets this month.
    */
   public getFoodTicketsAmount() {
     return this.as.foodTickersPerManDay * this.getGoalAttendance() * this.as.workDaysThisMonth;
   }
+
   /**
    * Calculates the food spendings after all the food tickets are used.
    */
@@ -50,10 +58,15 @@ export class MoneyTrackService {
   public getRevenuePerMonth() {
     return this.getRealIncome() - this.getRealFoodSpendings() - this.as.rentSpendings;
   }
-
+  /**
+   * Calculate revenuer per day given current settings.
+   */
   public getRevenuePerDay() {
-    console.log('revenue per month is:' + this.getRevenuePerMonth() );
     return this.getRevenuePerMonth() / this.as.workDaysThisMonth;
+  }
+
+  public getTotalIncomePerDay() {
+    return this.getTotalIncomeWithFood() / this.as.workDaysThisMonth;
   }
 
   /**
@@ -62,6 +75,22 @@ export class MoneyTrackService {
    */
   public getPriceEquivalentInManDays(price: number) {
     return +(price / this.getRevenuePerDay()).toFixed(2);
+  }
+
+  /**
+   * Convert desired percentage of attendance into mandays.
+   */
+  public getManDaysExpectedByGoal() {
+    return this.as.goalAttendancePercent * this.as.workDaysThisMonth;
+  }
+
+  /**
+   * Calculate real attendance based on completed hours of work
+   * @param hours
+   */
+  public getRealAttendance(hours: number) {
+    const manDaysCompleted = hours / 8;
+    return manDaysCompleted / this.getManDaysExpectedByGoal();
   }
 
 }

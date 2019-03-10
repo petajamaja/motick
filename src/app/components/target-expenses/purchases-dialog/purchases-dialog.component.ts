@@ -26,7 +26,7 @@ export class PurchasesDialogComponent implements OnInit {
       name: ['', [Validators.required]],
       url: ['', [Validators.required]],
       pictureUrl: ['', [Validators.required]],
-      price: ['', [Validators.required]]
+      price: ['', [Validators.required]],
     });
   }
 

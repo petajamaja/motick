@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { AppSettings } from '../../api/app-settings.interface';
+import { AppSettings, AttendanceMode } from '../../api/app-settings.interface';
 
 @Component({
   selector: 'app-settings',
