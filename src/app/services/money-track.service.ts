@@ -93,4 +93,8 @@ export class MoneyTrackService {
     return manDaysCompleted / this.getManDaysExpectedByGoal();
   }
 
+  public getManDayLength() {
+    return this.getGoalAttendance() * 8;
+  }
+
 }

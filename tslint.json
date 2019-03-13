@@ -6,6 +6,11 @@
   "rules": {
     "array-type": false,
     "arrow-parens": false,
+    "variable-name": [
+      true, 
+      "ban-keywords",
+      "check-format", 
+      "allow-leading-underscore"],
     "deprecation": {
       "severity": "warn"
     },

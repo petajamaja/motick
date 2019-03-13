@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   revenuePerMonth: number;
   incomePerMonth: number;
   revenuePerDay: number;
+  hoursInAManDay: number;
   incomePerHour: number;
   hoursToday: number;
   isAttendanceRegular: boolean;
@@ -27,15 +28,13 @@ export class HomeComponent implements OnInit {
     this.revenuePerDay = +(this._moneyService.getRevenuePerDay()).toFixed(2);
     this.incomePerMonth = +(this._moneyService.getTotalIncomeWithFood()).toFixed(2);
     this.incomePerHour = +(this._moneyService.getTotalIncomePerDay() / 8).toFixed(2);
+    this.hoursInAManDay = this._moneyService.getManDayLength();
     this._dataService.getAppStateFromLocalStorage();
     this._dataService.state$.subscribe(res => {
       this.appState = res;
     });
     this._dataService.settings$.subscribe(res => {
       this.isAttendanceRegular = (res.attendanceMode === AttendanceMode.everyday);
-      console.log(res.attendanceMode);
-      console.log(AttendanceMode.everyday);
-      console.log(res.attendanceMode === AttendanceMode.everyday);
     });
   }
 

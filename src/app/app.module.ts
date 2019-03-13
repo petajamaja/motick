@@ -24,6 +24,7 @@ import { PurchaseTableComponent } from './components/target-expenses/purchase-ta
 import { PurchasesWidgetComponent } from './components/target-expenses/purchases-widget/purchases-widget.component';
 import { PurchaseSlideComponent } from './components/target-expenses/purchase-slide/purchase-slide.component';
 import { MoneyTrackService } from './services/money-track.service';
+import { RevenueComponent } from './components/home/widgets/revenue/revenue.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MoneyTrackService } from './services/money-track.service';
     PurchaseTableComponent,
     PurchasesWidgetComponent,
     PurchaseSlideComponent,
+    RevenueComponent,
   ],
   imports: [
     BrowserModule,
