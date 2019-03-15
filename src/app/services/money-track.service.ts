@@ -119,12 +119,22 @@ export class MoneyTrackService {
   }
 
   /**
-   * Calculate revenuer per day given current settings.
+   * Calculate revenuer per PHYSICAL day (SMD) given current settings.
    */
   public getRevenuePerDay() {
     return this.getRevenuePerMonth() / this.as.workDaysThisMonth;
   }
 
+  /**
+   * Calculate revenue per manday
+   */
+  public getRevenuePerManDay() {
+    return (this.getRevenuePerMonth() * this.getGoalAttendance(ExpectedMeasure.percentage)) / this.as.workDaysThisMonth;
+  }
+
+  /**
+   * Calculate revenue per PHYSICAL hour.
+   */
   public getRevenuePerHour() {
     return this.getRevenuePerDay() / 8;
   }
@@ -134,7 +144,16 @@ export class MoneyTrackService {
    * @param price - price of a purchase
    */
   public getPriceEquivalentInManDays(price: number) {
-    return +(price / this.getRevenuePerDay()).toFixed(2);
+    // get revenue per standard man day (SMD)
+    if (this.as.attendanceMode === AttendanceMode.partial) {
+      return +(price / this.getRevenuePerDay()).toFixed(2);
+    } else {
+      return +(price / this.getRevenuePerManDay()).toFixed(2);
+    }
+  }
+
+  public getPriceEquivalentInStandardManDays(price: number){
+
   }
 
   /**

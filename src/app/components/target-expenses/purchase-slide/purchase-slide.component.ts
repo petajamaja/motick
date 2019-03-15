@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MoneyTrackService } from 'src/app/services/money-track.service';
+import { AttendanceMode } from 'src/app/api/app-settings.interface';
 
 @Component({
   selector: 'app-purchase-slide',
@@ -12,6 +13,9 @@ export class PurchaseSlideComponent implements OnInit {
   pictureUrl: string;
   @Input()
   price: number;
+  @Input()
+  attendanceMode: AttendanceMode;
+
   priceInManDays: number;
 
   constructor(private _moneyService: MoneyTrackService) { }

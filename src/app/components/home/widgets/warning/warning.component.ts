@@ -55,7 +55,7 @@ export class WarningComponent implements OnInit {
       return 1;
     } else {
       // if the attendance mode is partial, return lost mandays based on
-      // current attendance percentage
+      // current attendance percentage; in this case 1MD = 8 hours
       return this._moneyService.getPriceEquivalentInManDays(this.calculateRevenueLoss());
     }
   }

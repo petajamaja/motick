@@ -2,7 +2,8 @@
   <img src="{{pictureUrl}}"/>
   <div class="price-tags">
       <div class="price-tag mandays center">
-          <span>{{priceInManDays}} MD</span>
+          <span *ngIf="attendanceMode===1">{{priceInManDays}} SMD</span>
+          <span *ngIf="attendanceMode===0">{{priceInManDays}} MD</span>
         </div>
       <div class="price-tag money center">
         <span>{{price}};-</span>
