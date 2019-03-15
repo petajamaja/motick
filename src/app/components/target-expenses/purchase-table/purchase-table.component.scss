@@ -2,7 +2,18 @@
     overflow: auto;
   }
   
-  table {
+  table.mat-table {
     width: 100%;
     margin-bottom: 30px;
+    border-collapse: collapse;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
   }
+
+  .mat-footer-row {
+    border-right: 1px solid black;
+  }
+
+.mat-column-select {
+  width: fit-content;
+}

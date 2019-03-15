@@ -74,6 +74,7 @@ mat-form-field {
   margin-left: 10px;
 }
 
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -103,6 +104,13 @@ body {
     width: 100px;
   }
 }
+
+td.mat-cell:first-of-type, 
+td.mat-footer-cell:first-of-type,
+th.mat-header-cell:first-of-type{
+  padding-left: 0!important;
+}
+
 .mat-footer-row, .mat-header-row {
   background-color: map-get($mat-blue-grey,50);
   text-align: center;
