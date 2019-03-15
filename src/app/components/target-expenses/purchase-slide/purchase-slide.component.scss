@@ -55,6 +55,9 @@
 
 .money {
     background-color: #e1bee7;
+    span {
+        color: black!important;
+    }
     margin-top: 10px;
     &:before {
         border-left: 20px solid #e1bee7;

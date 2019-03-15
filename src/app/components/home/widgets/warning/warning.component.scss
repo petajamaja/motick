@@ -1,0 +1,36 @@
+.warning {
+    background-color: #ff0040a9;
+    p {
+        text-align: center;
+    }
+    p.bigger{ 
+        color: white;
+        font-size: 20px;
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        list-style-position: outside;
+        padding: 0;
+        li {
+         padding: 11px 11px;
+         margin: 5px;
+        }
+    }
+}
+
+
+.revenue {
+    background-color: #e1bee7;
+    border: 1px solid white;
+}
+.hours {
+    background-color: white;
+}
+.mandays {
+    background-color: #ff0040;
+    border: 1px solid white;
+    color: white;
+}
