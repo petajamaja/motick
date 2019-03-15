@@ -34,21 +34,10 @@ export class HomeComponent implements OnInit {
     this._dataService.state$.subscribe(res => {
       this.appState = res;
     });
+    this._dataService.getAppSettingsFromLocalStorage();
     this._dataService.settings$.subscribe(res => {
       this.isAttendanceRegular = (res.attendanceMode === AttendanceMode.everyday);
       this.goalAttendancePercent = res.goalAttendancePercent;
     });
   }
-
-  saveHours() {
-    this.appState.attendanceToday = this.hoursToday;
-    // add hours to the total of this month
-    this.appState.attendanceMonthTotal = this.appState.attendanceMonthTotal += this.hoursToday;
-    this.appState.daysPassed += 1;
-    this.appState.realAttendancePercent = this._moneyService.getRealAttendance(
-      ExpectedMeasure.percentage, this.appState.attendanceMonthTotal
-    );
-    this._dataService.changeAppState(this.appState);
-  }
 }
-

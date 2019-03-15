@@ -24,14 +24,14 @@ export class DataService {
     attendanceMode: AttendanceMode.everyday,
     workDaysThisMonth: 0
   };
-  private appSettings = new BehaviorSubject(this.defaultAppSettings);
+  private appSettings = new BehaviorSubject<AppSettings>(this.defaultAppSettings);
   private defaultAppState = {
     realAttendancePercent: 0,
     attendanceToday: 0,
     attendanceMonthTotal: 0,
     daysPassed: 0
   };
-  private appState = new BehaviorSubject(this.defaultAppState);
+  private appState = new BehaviorSubject<AppState>(this.defaultAppState);
 
   purchase$ = this.purchases.asObservable();
   settings$ = this.appSettings.asObservable();
@@ -107,6 +107,6 @@ export class DataService {
 
   public getAppStateFromLocalStorage(): void {
     // set the default app state in case today there has been no changes
-    this.changeAppSettings(this.storage.get(STORAGE_KEY_SETTINGS) || this.defaultAppState);
+    this.changeAppState(this.storage.get(STORAGE_KEY_STATE) || this.defaultAppState);
   }
 }

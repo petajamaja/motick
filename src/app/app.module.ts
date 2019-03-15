@@ -26,6 +26,7 @@ import { PurchaseSlideComponent } from './components/target-expenses/purchase-sl
 import { MoneyTrackService } from './services/money-track.service';
 import { RevenueComponent } from './components/home/widgets/revenue/revenue.component';
 import { WarningComponent } from './components/home/widgets/warning/warning.component';
+import { AddHoursComponent } from './components/home/widgets/add-hours/add-hours.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { WarningComponent } from './components/home/widgets/warning/warning.comp
     PurchaseSlideComponent,
     RevenueComponent,
     WarningComponent,
+    AddHoursComponent,
   ],
   imports: [
     BrowserModule,

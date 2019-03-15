@@ -1,21 +1,10 @@
 <app-warning [isAttendanceRegular]="isAttendanceRegular"
              [appState]="appState"
              [goalAttendancePercent]="goalAttendancePercent"></app-warning>
-
-<mat-card class="hours-today">
-  <p>HOURS WORKED TODAY:</p>
-  <mat-form-field>
-      <input matInput type="number" [(ngModel)]="hoursToday">
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="saveHours()"> 
-    SAVE HOURS
-  </button>
-  <p *ngIf="isAttendanceRegular">NEED TO COMPENSATE:</p>
-  <p *ngIf="!isAttendanceRegular">ATTENDANCE REMAINING:</p>
-</mat-card>
 <mat-card class="widget">
   <app-purchases-widget></app-purchases-widget>
 </mat-card>
+<app-add-hours></app-add-hours>
 <mat-card class="overviw">
     <p>INCOME PER HOUR: {{incomePerHour}},-</p>
     <p>INCOME PER MONTH: {{incomePerMonth}},-</p>
