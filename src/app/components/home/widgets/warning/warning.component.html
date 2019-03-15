@@ -1,0 +1,20 @@
+<mat-card class="warning">
+  <div *ngIf="isAttendanceRegular">
+      <p>MANDAYS TILL THE GOAL: {{remainingManDays}}</p>
+      <p>If you skip work today, you will lose:</p>
+      <ul>
+          <li>{{revenueLoss}} ;-</li>
+          <li>{{hoursLoss}} h</li>
+          <li>{{mandayLoss}} MD</li>
+      </ul>
+  </div>
+  <div *ngIf="!isAttendanceRegular">
+      <p>HOURS TILL THE GOAL: {{hoursTillTheGoal}}</p>
+      <p>If you skip work today, you will lose:</p>
+      <ul>
+          <li>{{revenueLoss}} ;-</li>
+          <li>{{hoursLoss}} h</li>
+          <li>{{mandayLoss}} MD</li>
+      </ul>
+  </div>
+</mat-card>

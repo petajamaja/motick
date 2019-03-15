@@ -1,8 +1,7 @@
-<mat-card class="overviw">
-  <p>REVENUE PER MANDAY: {{revenuePerDay}},-</p>
-  <p>REVENUE THIS MONTH: {{revenuePerMonth}},-</p>
-  <p>HOURS IN A MANDAY: {{hoursInAManDay}}</p>
-</mat-card>
+<app-warning [isAttendanceRegular]="isAttendanceRegular"
+             [appState]="appState"
+             [goalAttendancePercent]="goalAttendancePercent"></app-warning>
+
 <mat-card class="hours-today">
   <p>HOURS WORKED TODAY:</p>
   <mat-form-field>

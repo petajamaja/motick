@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MoneyTrackService } from 'src/app/services/money-track.service';
 import { DataService } from 'src/app/services/data.service';
 import { AttendanceMode } from 'src/app/api/app-settings.interface';
+import { MoneyTrackService, ExpectedMeasure } from 'src/app/services/money-track.service';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   incomePerHour: number;
   hoursToday: number;
   isAttendanceRegular: boolean;
+  goalAttendancePercent: number;
 
   constructor(private _dataService: DataService,
               private _moneyService: MoneyTrackService) { }
@@ -35,6 +36,7 @@ export class HomeComponent implements OnInit {
     });
     this._dataService.settings$.subscribe(res => {
       this.isAttendanceRegular = (res.attendanceMode === AttendanceMode.everyday);
+      this.goalAttendancePercent = res.goalAttendancePercent;
     });
   }
 
@@ -42,7 +44,10 @@ export class HomeComponent implements OnInit {
     this.appState.attendanceToday = this.hoursToday;
     // add hours to the total of this month
     this.appState.attendanceMonthTotal = this.appState.attendanceMonthTotal += this.hoursToday;
-    this.appState.realAttendancePercent = this._moneyService.getRealAttendance(this.appState.attendanceMonthTotal);
+    this.appState.daysPassed += 1;
+    this.appState.realAttendancePercent = this._moneyService.getRealAttendance(
+      ExpectedMeasure.percentage, this.appState.attendanceMonthTotal
+    );
     this._dataService.changeAppState(this.appState);
   }
 }

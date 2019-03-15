@@ -28,7 +28,8 @@ export class DataService {
   private defaultAppState = {
     realAttendancePercent: 0,
     attendanceToday: 0,
-    attendanceMonthTotal: 0
+    attendanceMonthTotal: 0,
+    daysPassed: 0
   };
   private appState = new BehaviorSubject(this.defaultAppState);
 
