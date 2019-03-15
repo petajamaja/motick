@@ -40,12 +40,12 @@ export class WarningComponent implements OnInit {
   calculateRevenueLoss() {
     if (this.isAttendanceRegular) {
       // if the attendance mode is everyday, return revenue per day
-      return this._moneyService.getRevenuePerDay();
+      return +(this._moneyService.getRevenuePerDay()).toFixed(2);
     } else {
       // if the attendance mode is partial, return lost money based on
       // current attendance percentage
       const realHoursPerDay = this._moneyService.getRemainingHoursPerDay(this.appState.daysPassed, this.appState.attendanceMonthTotal);
-      return this._moneyService.getRevenuePerHour() * realHoursPerDay;
+      return +(this._moneyService.getRevenuePerHour() * realHoursPerDay).toFixed(2);
     }
   }
 
