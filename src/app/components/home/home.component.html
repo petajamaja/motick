@@ -1,7 +1,7 @@
 <app-warning [isAttendanceRegular]="isAttendanceRegular"
              [appState]="appState"
              [goalAttendancePercent]="goalAttendancePercent"></app-warning>
-<mat-card class="widget">
+<mat-card class="widget" *ngIf="purchases.length">
   <app-purchases-widget></app-purchases-widget>
 </mat-card>
 <app-add-hours></app-add-hours>

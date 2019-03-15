@@ -69,6 +69,11 @@ mat-icon {
     color: white;
 }
 
+mat-form-field {
+  margin-right: 10px;
+  margin-left: 10px;
+  max-width: 100px;
+}
 body {
     background: map-get($mat-blue-grey,50);
 }
