@@ -1,4 +1,4 @@
-<div class="purchase-table">
+<div class="purchase-table" *ngIf="purchases.length">
   <table mat-table [dataSource]="tableDataSource" >
 
     <ng-container matColumnDef="select">
