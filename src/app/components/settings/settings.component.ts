@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { AppSettings, AttendanceMode } from '../../api/app-settings.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -17,7 +18,8 @@ export class SettingsComponent implements OnInit {
   timeGoals: FormGroup;
 
   constructor(private _dataService: DataService,
-              private _formBuilder: FormBuilder) {}
+              private _formBuilder: FormBuilder,
+              private router: Router) {}
 
   ngOnInit() {
     // load current app settings from local storage
@@ -45,5 +47,6 @@ export class SettingsComponent implements OnInit {
   saveSettings() {
     this.appSettings = this.appSettingsForm.value;
     this._dataService.changeAppSettings(this.appSettings);
+    this.router.navigate(['/']);
   }
 }

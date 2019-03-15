@@ -72,8 +72,18 @@ mat-icon {
 mat-form-field {
   margin-right: 10px;
   margin-left: 10px;
-  max-width: 100px;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
 body {
     background: map-get($mat-blue-grey,50);
 }

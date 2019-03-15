@@ -11,12 +11,12 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
               <label matTooltip="Paid in money" for="money">Monthly income</label>
-              <mat-form-field class="money">
+              <mat-form-field class="money form">
                 <input type="number" matInput formControlName="monthlyIncome">
               </mat-form-field>
               <br>
               <label for="edenred" matTooltip="Paid in Edenred tickets">Food tickets/MD</label>
-              <mat-form-field class="edenred">
+              <mat-form-field class="edenred form">
                   <input type="number" matInput formControlName="foodTickersPerManDay">
               </mat-form-field>
         </mat-expansion-panel>
@@ -27,12 +27,12 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
               <label for="accommodation">Rent</label>
-              <mat-form-field class="accommodation">
+              <mat-form-field class="accommodation form">
                 <input type="number" matInput formControlName="rentSpendings">
               </mat-form-field>
               <br>
               <label for="food">Food spendings</label>
-              <mat-form-field class="food">
+              <mat-form-field class="food form">
                   <input type="number" matInput formControlName="foodSpendings">
               </mat-form-field>
         </mat-expansion-panel>
@@ -43,12 +43,12 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
               <label for="workdays">Work days this month</label>
-              <mat-form-field class="workdays">
+              <mat-form-field class="workdays form">
                 <input type="number" matInput formControlName="workDaysThisMonth">
               </mat-form-field>
               <br>
               <label for="attendance">Attendance %</label>
-              <mat-form-field class="attendance">
+              <mat-form-field class="attendance form">
                 <input type="number" matInput formControlName="goalAttendancePercent">
               </mat-form-field>
               <br>
@@ -57,13 +57,6 @@
                   <mat-radio-button [value]="0">Everyday attendance</mat-radio-button>
                   <mat-radio-button [value]="1">Partial attendance</mat-radio-button>
               </mat-radio-group>
-        </mat-expansion-panel>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              APP SETTINGS
-            </mat-panel-title>
-          </mat-expansion-panel-header>
         </mat-expansion-panel>
       </mat-accordion>
       <br>
