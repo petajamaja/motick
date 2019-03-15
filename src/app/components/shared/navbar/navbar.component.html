@@ -1,9 +1,9 @@
 <mat-toolbar color="primary" class="flex">
     <a routerLink=""><mat-icon>home</mat-icon></a>
-    <span>MOTICK {{this.router.url | slice:1 | uppercase}}</span>
+    <span>MOTICK {{routerUrl | slice:1 | uppercase}}</span>
     <button class="view-toggler" mat-fab (click)="switchBetweenPages()">
-      <mat-icon *ngIf="this.router.url=='/settings'">settings</mat-icon>
-      <mat-icon *ngIf="this.router.url=='/expenses'">attach_money</mat-icon>
-      <mat-icon *ngIf="this.router.url=='/'">home</mat-icon>
+      <mat-icon *ngIf="routerUrl=='/settings'">settings</mat-icon>
+      <mat-icon *ngIf="routerUrl=='/expenses'">attach_money</mat-icon>
+      <mat-icon *ngIf="routerUrl=='/'">home</mat-icon>
     </button>
 </mat-toolbar>

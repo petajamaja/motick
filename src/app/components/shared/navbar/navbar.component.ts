@@ -14,10 +14,13 @@ export class NavbarComponent implements OnInit {
     settings: '/settings'
   };
 
+  routerUrl: string;
+
   constructor(private router: Router) {
   }
 
   ngOnInit() {
+    this.routerUrl = this.router.url;
   }
 
   switchBetweenPages() {
@@ -34,6 +37,7 @@ export class NavbarComponent implements OnInit {
         break;
       default: break;
     }
+    this.routerUrl = page;
     this.router.navigate([page]);
     return false;
   }
