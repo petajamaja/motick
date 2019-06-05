@@ -77,8 +77,7 @@ export class DataService {
     currentPurchaseList.push({
               id: purchase.id,
               name: purchase.name,
-              url: purchase
-              .url,
+              url: purchase.url,
               pictureUrl: purchase.pictureUrl,
               price: purchase.price
     });

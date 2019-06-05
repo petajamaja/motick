@@ -3,7 +3,8 @@
     <mat-carousel-slide *ngFor = "let purchase of purchases">
       <app-purchase-slide [pictureUrl]="purchase.pictureUrl"
                           [price]="purchase.price"
-                          [attendanceMode]="attendanceMode">
+                          [attendanceMode]="attendanceMode"
+                          [priceInManDays]="calculatePriceInManDays(purchase.price)">
       </app-purchase-slide>
     </mat-carousel-slide>
   </mat-carousel>
