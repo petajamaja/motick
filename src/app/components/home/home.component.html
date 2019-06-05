@@ -1,6 +1,10 @@
 <app-warning [isAttendanceRegular]="isAttendanceRegular"
-             [appState]="appState"
-             [goalAttendancePercent]="goalAttendancePercent"></app-warning>
+             [revenueLoss]="calculateRevenueLoss()"
+             [mandayLoss]="calculateManDayLoss()"
+             [hoursLoss]="hoursInAManDay"
+             [hoursTillTheGoal]="hoursTillTheGoal"
+             [remainingManDays]="remainingManDays">
+</app-warning>
 <mat-card class="widget" *ngIf="purchases.length">
   <app-purchases-widget></app-purchases-widget>
 </mat-card>

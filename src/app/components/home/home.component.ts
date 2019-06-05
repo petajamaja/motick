@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit {
   hoursToday: number;
   isAttendanceRegular: boolean;
   goalAttendancePercent: number;
+  hoursTillTheGoal: number;
+  remainingManDays: number;
 
   constructor(private _dataService: DataService,
               private _moneyService: MoneyTrackService) { }
@@ -42,6 +44,8 @@ export class HomeComponent implements OnInit {
     this._dataService.getAppStateFromLocalStorage();
     this._dataService.state$.subscribe(res => {
       this.appState = res;
+      this.hoursTillTheGoal = this._moneyService.getRemainingAttendance(ExpectedMeasure.hours, this.appState.attendanceMonthTotal);
+      this.remainingManDays = this._moneyService.getRemainingAttendance(ExpectedMeasure.manday, this.appState.attendanceMonthTotal);
     });
     this._dataService.getAppSettingsFromLocalStorage();
     this._dataService.settings$.subscribe(res => {
@@ -49,4 +53,33 @@ export class HomeComponent implements OnInit {
       this.goalAttendancePercent = res.goalAttendancePercent;
     });
   }
+
+  /**
+   * Method for the warning widget.
+   */
+  calculateRevenueLoss() {
+    if (this.isAttendanceRegular) {
+      // if the attendance mode is everyday, return revenue per day
+      return +(this._moneyService.getRevenuePerDay()).toFixed(2);
+    } else {
+      // if the attendance mode is partial, return lost money based on
+      // current attendance percentage
+      const realHoursPerDay = this._moneyService.getRemainingHoursPerDay(this.appState.daysPassed, this.appState.attendanceMonthTotal);
+      return +(this._moneyService.getRevenuePerHour() * realHoursPerDay).toFixed(2);
+    }
+  }
+  /**
+   * Method for the warning widget.
+   */
+  calculateManDayLoss() {
+    if (this.isAttendanceRegular) {
+      // if the attendance mode is everyday, return revenue per day
+      return 1;
+    } else {
+      // if the attendance mode is partial, return lost mandays based on
+      // current attendance percentage; in this case 1MD = 8 hours
+      return this._moneyService.getPriceEquivalentInManDays(this.calculateRevenueLoss());
+    }
+  }
+
 }
