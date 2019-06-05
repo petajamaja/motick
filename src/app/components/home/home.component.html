@@ -8,7 +8,9 @@
 <mat-card class="widget" *ngIf="purchases.length">
   <app-purchases-widget></app-purchases-widget>
 </mat-card>
-<app-add-hours></app-add-hours>
+<app-add-hours [dayNumber]="appState.daysPassed + 1" 
+               (hoursAdded)="saveHours($event)">
+</app-add-hours>
 <mat-card class="overviw">
     <p>INCOME PER HOUR: {{incomePerHour}},-</p>
     <p>INCOME PER MONTH: {{incomePerMonth}},-</p>

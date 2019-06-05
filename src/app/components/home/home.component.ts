@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { AttendanceMode, AppSettings } from 'src/app/api/app-settings.interface';
 import { MoneyTrackService, ExpectedMeasure } from 'src/app/services/money-track.service';
@@ -80,6 +80,18 @@ export class HomeComponent implements OnInit {
       // current attendance percentage; in this case 1MD = 8 hours
       return this._moneyService.getPriceEquivalentInManDays(this.calculateRevenueLoss());
     }
+  }
+
+  /**
+   * Add hours worked during the day on the add hours widget.
+   */
+  saveHours() {
+    this.appState.attendanceMonthTotal = this.appState.attendanceMonthTotal += this.hoursToday;
+    this.appState.daysPassed += 1;
+    this.appState.realAttendancePercent = this._moneyService.getRealAttendance(
+      ExpectedMeasure.percentage, this.appState.attendanceMonthTotal
+    );
+    this._dataService.changeAppState(this.appState);
   }
 
 }
