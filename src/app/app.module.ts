@@ -12,7 +12,9 @@ import {MatToolbarModule, MatCardModule, MatIconModule, MatButtonModule, MatDivi
         MatRadioModule,
         MatDialogModule,
         MatTableModule,
+        MatDatepickerModule,
         MatCheckboxModule} from '@angular/material';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
@@ -52,11 +54,13 @@ import { AddHoursComponent } from './components/home/widgets/add-hours/add-hours
     MatFormFieldModule,
     MatTooltipModule,
     MatInputModule,
+    MatDatepickerModule,
     BrowserAnimationsModule,
     MatExpansionModule,
     MatRadioModule,
     StorageServiceModule,
     MatDialogModule,
+    MatMomentDateModule,
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,

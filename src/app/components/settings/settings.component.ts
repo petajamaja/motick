@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { AppSettings, AttendanceMode } from '../../api/app-settings.interface';
+import { AppSettings } from '../../api/app-settings.interface';
 import { Router } from '@angular/router';
+import { Moment } from 'moment';
+import { MatCalendar } from '@angular/material';
 
 @Component({
   selector: 'app-settings',
